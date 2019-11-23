@@ -1,0 +1,10 @@
+﻿@model string
+@{
+    ViewData["Title"] = "FunFacts";
+}
+
+<div class="text-center">
+    <h2 class="display-4">@Model</h2>
+    <p>From: thefactsite.com</p>
+    <p>@User.Identity.Name</p>
+</div>

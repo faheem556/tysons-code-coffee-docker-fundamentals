@@ -1,0 +1,18 @@
+.dockerignore
+.env
+.git
+.gitignore
+.vs
+.vscode
+
+# directories
+**/bin/
+**/obj/
+**/out/
+
+# files
+Dockerfile*
+**/*.trx
+**/*.md
+
+LICENSE
