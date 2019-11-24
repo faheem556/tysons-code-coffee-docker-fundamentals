@@ -33,7 +33,7 @@ docker pull alpine
 # Check local images and notice docker pulled 'latest' tag for alpine
 docker image ls
 
-# Run our first container. Note container runs and exists
+# Run our first container. Note container runs and exits
 docker run hell-world
 
 # Check local images, notice docker CLI automatically pulled the 'hello-world:latest' image for us
@@ -79,7 +79,7 @@ docker run -ti -v C:\Users\faheem\codes\tysons\share:/share alpine sh
 echo 'Hello container' > /share/test.txt
 exit
 
-# Get contents from the current folder and notice that the file is preseved
+# Get contents from the current folder and notice that the file is preserved
 ls ./share
 
 # Publish ports of the docker container on the host using '-p' option
@@ -172,29 +172,29 @@ cd .\angular-app\
 
 # The application has angular files, Dockerfile, multi-stage.Dockerfile, and nginx.conf
 
-# You would need angular CLI to build the app. Instead, if you want to build inside another docker conatainer, skip these steps and move to the multi-stage build
+# You would need angular CLI to build the app. Instead, if you want to build inside another docker container, skip these steps and move to the multi-stage build
 npm install
 ng build -prod 
 docker built -t angular-app .
 docker image ls
 
-# Test the new conatiner
+# Test the new container
 docker run -d --rm -p 3000:80 angular-app
 docker container ls
 curl localhost:3000
 
 # Stop the angular container
-docker container stop $(docker conatiner ls -aq)
+docker container stop $(docker container ls -aq)
 
-# Mulit-stage Build Images: Instead of building the application locally and 
+# Multi-stage Build Images: Instead of building the application locally and 
 # then copying the ./dist files to the image. We use another container to build
-# the app and copy the files over to the eventual conatiner mid-flight.
+# the app and copy the files over to the eventual container mid-flight.
 docker build -t angular-app2 -f .\multi-stage.Dockerfile .
 docker image ls
 
 # Test the new image
 docker run -d --rm -p 3000:80 angular-app2 
-docker conatiner ls
+docker container ls
 curl http://localhost:3000
 
 # Stop the angular conatiner
@@ -211,6 +211,6 @@ docker run -d --rm -p 5000:5000 funfact
 curl http://localhost:5000
 curl http://localhost:5000/home/fact
 
-# Stop the conatiner
-docker container stop $(docker conatiner ls -aq)
+# Stop the container
+docker container stop $(docker container ls -aq)
 ```
