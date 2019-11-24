@@ -19,7 +19,6 @@ FROM mcr.microsoft.com/dotnet/core/aspnet:2.2.2-bionic
 WORKDIR /app
 HEALTHCHECK --interval=10s --timeout=3s --start-period=2m \
   CMD curl --fail http://localhost:5000 || exit 1  
-
      
 CMD ["dotnet", "funfact.dll"]
 
